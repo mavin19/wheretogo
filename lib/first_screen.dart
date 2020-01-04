@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wheretogo/constants/contstant.dart';
+import 'package:wheretogo/home_screen.dart';
 import 'package:wheretogo/login.dart';
 
 class FirstScreen extends StatefulWidget{
@@ -35,15 +36,20 @@ class _FirstScreenState extends State<FirstScreen>{
                       child: Center(child: Text('Login',style: TextStyle(color: Colors.white,fontSize: Constant.kNormalText,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
                     ),
                     onTap:(){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));
                     },
                   ),
                 ),
                 Expanded(
-                  child: Container(
-                    height: double.infinity,
-                    color: Colors.white,
-                    child: Center(child: Text('Guest',style: TextStyle(color: Colors.black,fontSize: Constant.kNormalText,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                  child: GestureDetector(
+                    child: Container(
+                      height: double.infinity,
+                      color: Colors.white,
+                      child: Center(child: Text('Guest',style: TextStyle(color: Colors.black,fontSize: Constant.kNormalText,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
+                    ),
+                    onTap:(){
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+                    },
                   ),
                 )
               ],
