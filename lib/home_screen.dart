@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wheretogo/component/button.dart';
 
+import 'component/list_post.dart';
 import 'constants/contstant.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -101,7 +102,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     topRight: Radius.circular(45.0),
                   ),
                   color: Colors.white),
-              height: 500,
               width: double.infinity,
               child: Padding(
                 padding: const EdgeInsets.all(25.0),
@@ -134,10 +134,71 @@ class _HomeScreenState extends State<HomeScreen> {
                        style: TextStyle(
                            fontSize: Constant.kTitleFont, color: Colors.grey),
                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(20.0),
+                      height: 300,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: <Widget>[
+                          ListPost(),
+                          ListPost(),
+                          ListPost(),
+                          ListPost(),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Center(
+                          child: Container(
+                            width: 300,
+                            height: 50,
+                            margin: EdgeInsets.only(top: 20),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: Colors.blueAccent,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "All events",
+                                style: TextStyle(
+                                  fontSize: Constant.kNormalText,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Center(
+                          child: Container(
+                            width: 300,
+                            height: 50,
+                            margin: EdgeInsets.only(top: 20),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20.0),
+                              color: Colors.blueAccent,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "All events",
+                                style: TextStyle(
+                                  fontSize: Constant.kNormalText,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     )
-
                   ],
                 ),
+
               ),
             ),
           ],
