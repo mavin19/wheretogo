@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xFff7BE57),
       appBar: AppBar(
         title: Text(
-          "Decovery",
+          "Discovery",
           style: TextStyle(
               fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
         ),
