@@ -35,7 +35,7 @@ class _FirstScreenState extends State<FirstScreen>{
                       child: Center(child: Text('Login',style: TextStyle(color: Colors.white,fontSize: Constant.kNormalText,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)),
                     ),
                     onTap:(){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));
                     },
                   ),
                 ),
