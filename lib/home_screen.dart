@@ -128,15 +128,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top:20.0),
-                     child: Text(
-                       "Tranding",
-                       style: TextStyle(
-                           fontSize: Constant.kTitleFont, color: Colors.grey),
-                     ),
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: Text(
+                        "Tranding",
+                        style: TextStyle(
+                            fontSize: Constant.kTitleFont, color: Colors.grey),
+                      ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(20.0),
+                      margin: EdgeInsets.all(10.0),
                       height: 300,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
@@ -156,17 +156,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                             margin: EdgeInsets.only(top: 20),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              color: Colors.blueAccent,
-                            ),
-                            child: Center(
-                              child: Text(
-                                "All events",
-                                style: TextStyle(
-                                  fontSize: Constant.kNormalText,
-                                  color: Colors.black,
+                                borderRadius: BorderRadius.circular(20.0),
+                                border: Border.all(color: Color(0xff707070))),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Image.asset(
+                                  "images/all_event.png",
+                                  scale: 25,
                                 ),
-                              ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 10.0),
+                                ),
+                                Text(
+                                  "All events",
+                                  style: TextStyle(
+                                    fontSize: Constant.kNormalText,
+                                    color: Color(0xffD75A4A),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         )
@@ -180,17 +189,26 @@ class _HomeScreenState extends State<HomeScreen> {
                             height: 50,
                             margin: EdgeInsets.only(top: 20),
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              color: Colors.blueAccent,
-                            ),
-                            child: Center(
-                              child: Text(
-                                "All events",
-                                style: TextStyle(
-                                  fontSize: Constant.kNormalText,
-                                  color: Colors.black,
+                                borderRadius: BorderRadius.circular(20.0),
+                                border: Border.all(color: Color(0xff707070))),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Icon(
+                                  Icons.favorite,
+                                  color: Color(0xffD75A4A),
                                 ),
-                              ),
+                                Padding(
+                                  padding: EdgeInsets.only(right: 10.0),
+                                ),
+                                Text(
+                                  "Favorite events",
+                                  style: TextStyle(
+                                    fontSize: Constant.kNormalText,
+                                    color: Color(0xffD75A4A),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         )
@@ -198,7 +216,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-
               ),
             ),
           ],
