@@ -3,4 +3,5 @@ class Constant{
   static const kNormalText = 16.0;
   static const kButtonText = 0xD75A4A;
   static const kPrimaryColor = 0xFff7BE57;
+  static const baseurl = "http://localhost:8000";
 }

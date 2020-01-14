@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wheretogo/component/button.dart';
+import 'package:wheretogo/profile.dart';
 
 import 'component/list_post.dart';
 import 'constants/contstant.dart';
@@ -46,7 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: new Image.asset('images/profile.png'),
               iconSize: 25,
               padding: const EdgeInsets.only(right: 30),
-              onPressed: null),
+              onPressed:(){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
+              }),
           new IconButton(
               icon: new Image.asset('images/book.png'),
               iconSize: 25,

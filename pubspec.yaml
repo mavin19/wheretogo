@@ -23,10 +23,13 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  font_awesome_flutter: ^8.5.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  chopper_generator: ^2.3.4
+  built_value_generator: ^6.7.0
 
 
 # For information on the generic Dart part of this file, see the
@@ -46,6 +49,7 @@ flutter:
     - images/profile.png
     - images/book.png
     - images/all_event.png
+    - images/default-profile.png
 #    - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

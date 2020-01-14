@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:wheretogo/book.dart';
 import 'package:wheretogo/first_screen.dart';
+import 'package:wheretogo/profile.dart';
+import 'package:wheretogo/register.dart';
 
 void main() => runApp(MyApp());
 
