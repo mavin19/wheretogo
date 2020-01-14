@@ -5,19 +5,21 @@ class FullListEventComponent extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(5.0),
       child: Container(
         padding: EdgeInsets.all(10.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: Colors.white
         ),
-        height: 100,
+        height: 150,
         child: Row(
           children: <Widget>[
             Expanded(
               flex: 2,
               child: Container(
+                height: 110,
+                width: 130,
                 child: Image.network("https://media-cdn.tripadvisor.com/media/photo-s/11/6e/10/74/prague-tour-info.jpg",fit: BoxFit.cover,),
               ),
             ),
@@ -27,27 +29,25 @@ class FullListEventComponent extends StatelessWidget{
                 padding: EdgeInsets.only(left: 10.0,),
                 child: Column(
                   children: <Widget>[
+                    Expanded(
+                      child: Align(
+                        alignment: FractionalOffset.topLeft,
+                        child: ListTile(
+                          title: Text("Title",
+                            style: TextStyle(fontSize: Constant.kTitleFont),
+                          ),
+                          subtitle: Text("Date",
+                            style: TextStyle(fontSize: Constant.kNormalText),
+                          ),
+
+                        ),
+                      ),
+                    ),
 
                     Expanded(
                       child: Align(
                         alignment: FractionalOffset.topLeft,
-                        child: Text("Title",
-                          style: TextStyle(fontSize: Constant.kTitleFont, ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Align(
-                        alignment: FractionalOffset.topLeft,
-                        child: Text("Date",
-                          style: TextStyle(fontSize: Constant.kNormalText, ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Align(
-                        alignment: FractionalOffset.bottomLeft,
-                        child: Text("Description",
+                        child: Text("Descriptioncvvvvvvvvvvvbnbrrrrrrrrrrrrrrrrrr",
                           style: TextStyle(fontSize: Constant.kNormalText, ),
                         ),
                       ),
@@ -60,6 +60,7 @@ class FullListEventComponent extends StatelessWidget{
             Expanded(
               flex: 1,
               child: Container(
+                padding: EdgeInsets.only(left: 10.0,right: 5.0, top: 5.0, bottom: 5.0),
                 child: Column(
                   children: <Widget>[
                     Expanded(
