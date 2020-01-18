@@ -3,6 +3,7 @@ import 'package:wheretogo/component/button.dart';
 
 import 'component/list_post.dart';
 import 'constants/contstant.dart';
+import 'filter.dart';
 
 class HomeScreen extends StatefulWidget {
   final heroTag;
@@ -123,6 +124,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           CustomButton(
                             text: "Sea",
+                            onPress: (){
+                            Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Filter()));
+                            },
                           ),
                         ],
                       ),

@@ -3,8 +3,9 @@ import 'package:wheretogo/constants/contstant.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
+  final Function onPress;
 
-  const CustomButton({@required this.text});
+  const CustomButton({@required this.text,@required this.onPress});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,9 @@ class CustomButton extends StatelessWidget {
           ),
         ),
       ),
+      onTap: onPress,
     );
   }
 }
+
 
