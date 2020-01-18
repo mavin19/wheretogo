@@ -50,6 +50,7 @@ flutter:
     - images/book.png
     - images/all_event.png
     - images/default-profile.png
+    - images/filter.png
 #    - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -4,6 +4,7 @@ import 'package:wheretogo/profile.dart';
 
 import 'component/list_post.dart';
 import 'constants/contstant.dart';
+import 'list_book.dart';
 
 class HomeScreen extends StatefulWidget {
   final heroTag;
@@ -154,32 +155,37 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       children: <Widget>[
                         Center(
-                          child: Container(
-                            width: 300,
-                            height: 50,
-                            margin: EdgeInsets.only(top: 20),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20.0),
-                                border: Border.all(color: Color(0xff707070))),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Image.asset(
-                                  "images/all_event.png",
-                                  scale: 25,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 10.0),
-                                ),
-                                Text(
-                                  "All events",
-                                  style: TextStyle(
-                                    fontSize: Constant.kNormalText,
-                                    color: Color(0xffD75A4A),
+                          child: GestureDetector(
+                            child: Container(
+                              width: 300,
+                              height: 50,
+                              margin: EdgeInsets.only(top: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(color: Color(0xff707070))),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Image.asset(
+                                    "images/all_event.png",
+                                    scale: 25,
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 10.0),
+                                  ),
+                                  Text(
+                                    "All events",
+                                    style: TextStyle(
+                                      fontSize: Constant.kNormalText,
+                                      color: Color(0xffD75A4A),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>BookListScreen()));
+                            },
                           ),
                         )
                       ],
