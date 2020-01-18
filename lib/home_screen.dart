@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:wheretogo/component/button.dart';
+import 'package:wheretogo/list_book.dart';
 import 'package:wheretogo/profile.dart';
 
 import 'component/list_post.dart';
 import 'constants/contstant.dart';
-import 'list_book.dart';
+import 'list_all_events.dart';
 
 class HomeScreen extends StatefulWidget {
   final heroTag;
@@ -55,7 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: new Image.asset('images/book.png'),
               iconSize: 25,
               padding: const EdgeInsets.only(right: 30),
-              onPressed: null),
+              onPressed: (){
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>BookListScreen()));
+              }),
         ],
       ),
       body: SingleChildScrollView(
@@ -184,7 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder:(context)=>BookListScreen()));
+                              Navigator.push(context, MaterialPageRoute(builder:(context)=>AllEventsListScreen()));
                             },
                           ),
                         )
