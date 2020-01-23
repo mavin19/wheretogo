@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:wheretogo/component/button.dart';
+import 'package:wheretogo/component/favorite_event_component.dart';
+import 'package:wheretogo/favorite_screen.dart';
+import 'package:wheretogo/profile.dart';
 
 import 'component/list_post.dart';
 import 'constants/contstant.dart';
+import 'list_book.dart';
 
 class HomeScreen extends StatefulWidget {
   final heroTag;
@@ -46,7 +50,9 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: new Image.asset('images/profile.png'),
               iconSize: 25,
               padding: const EdgeInsets.only(right: 30),
-              onPressed: null),
+              onPressed:(){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage()));
+              }),
           new IconButton(
               icon: new Image.asset('images/book.png'),
               iconSize: 25,
@@ -128,15 +134,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top:20.0),
-                     child: Text(
-                       "Tranding",
-                       style: TextStyle(
-                           fontSize: Constant.kTitleFont, color: Colors.grey),
-                     ),
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: Text(
+                        "Tranding",
+                        style: TextStyle(
+                            fontSize: Constant.kTitleFont, color: Colors.grey),
+                      ),
                     ),
                     Container(
-                      margin: EdgeInsets.all(20.0),
+                      margin: EdgeInsets.all(10.0),
                       height: 300,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
@@ -151,23 +157,38 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       children: <Widget>[
                         Center(
-                          child: Container(
-                            width: 300,
-                            height: 50,
-                            margin: EdgeInsets.only(top: 20),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              color: Colors.blueAccent,
-                            ),
-                            child: Center(
-                              child: Text(
-                                "All events",
-                                style: TextStyle(
-                                  fontSize: Constant.kNormalText,
-                                  color: Colors.black,
-                                ),
+                          child: GestureDetector(
+                            child: Container(
+                              width: 300,
+                              height: 50,
+                              margin: EdgeInsets.only(top: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(color: Color(0xff707070))),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Image.asset(
+                                    "images/all_event.png",
+                                    scale: 25,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 10.0),
+                                  ),
+                                  Text(
+                                    "All events",
+                                    style: TextStyle(
+                                      fontSize: Constant.kNormalText,
+                                      color: Color(0xffD75A4A),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>BookListScreen()));
+
+                            },
                           ),
                         )
                       ],
@@ -175,30 +196,43 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       children: <Widget>[
                         Center(
-                          child: Container(
-                            width: 300,
-                            height: 50,
-                            margin: EdgeInsets.only(top: 20),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20.0),
-                              color: Colors.blueAccent,
-                            ),
-                            child: Center(
-                              child: Text(
-                                "All events",
-                                style: TextStyle(
-                                  fontSize: Constant.kNormalText,
-                                  color: Colors.black,
-                                ),
+                          child: GestureDetector(
+                            child: Container(
+                              width: 300,
+                              height: 50,
+                              margin: EdgeInsets.only(top: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(color: Color(0xff707070))),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.favorite,
+                                    color: Color(0xffD75A4A),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 10.0),
+                                  ),
+                                  Text(
+                                    "Favorite events",
+                                    style: TextStyle(
+                                      fontSize: Constant.kNormalText,
+                                      color: Color(0xffD75A4A),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>FavoriteScreen()));
+                            },
                           ),
                         )
                       ],
                     )
                   ],
                 ),
-
               ),
             ),
           ],
