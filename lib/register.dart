@@ -1,6 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:wheretogo/constants/contstant.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+
+import 'constants/contstant.dart';
+import 'constants/share_pref_keys.dart';
+import 'home_screen.dart';
 
 class RegisterPage extends StatefulWidget{
   @override
@@ -9,6 +16,11 @@ class RegisterPage extends StatefulWidget{
 }
 
 class _RegisterPageState extends State<RegisterPage>{
+  bool _isLoading = false;
+  final TextEditingController usernameController = new TextEditingController();
+  final TextEditingController emailController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController phoneNumberController = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -37,6 +49,7 @@ class _RegisterPageState extends State<RegisterPage>{
                       decoration: InputDecoration(
                         hintText: 'Jonh Cena',
                       ),
+                      controller: usernameController,
                     ),
                     SizedBox(height: 30.0,),
                     Text("Email",style: TextStyle(fontSize: Constant.kNormalText,color: Colors.grey,fontWeight: FontWeight.bold),),
@@ -44,6 +57,7 @@ class _RegisterPageState extends State<RegisterPage>{
                       decoration: InputDecoration(
                         hintText: 'example@gmail.com',
                       ),
+                      controller: emailController,
                     ),
                     SizedBox(height: 30.0,),
                     Text("Phone number",style: TextStyle(fontSize: Constant.kNormalText,color: Colors.grey,fontWeight: FontWeight.bold),),
@@ -51,6 +65,7 @@ class _RegisterPageState extends State<RegisterPage>{
                       decoration: InputDecoration(
                         hintText: '012345678',
                       ),
+                      controller: phoneNumberController,
                     ),
                     SizedBox(height: 30.0,),
                     Text("Passoword",style: TextStyle(fontSize: Constant.kNormalText,color: Colors.grey,fontWeight: FontWeight.bold),),
@@ -59,6 +74,7 @@ class _RegisterPageState extends State<RegisterPage>{
                         hintText: 'Minimum 5',
                       ),
                       obscureText: true,
+                      controller: passwordController,
                     ),
                     SizedBox(height: 25.0,),
                     RaisedButton(
@@ -66,9 +82,22 @@ class _RegisterPageState extends State<RegisterPage>{
                       color: Color(Constant.kPrimaryColor),
                       child: Container(
                         width:150.0,
-                        child: Center(child: Text("LOGIN")),
+                        child: Center(child: Text("Sign up ")),
                       ),
-                      onPressed: (){},
+                      onPressed: emailController.text == "" ||
+                          passwordController.text == "" ||
+                          usernameController.text == "" ||
+                          phoneNumberController.text == ""
+                          ? null
+                          : () {
+                        setState(() {
+                          _isLoading = true;
+                        });
+                        signUp(emailController.text,
+                            passwordController.text,
+                            phoneNumberController.text,
+                            usernameController.text);
+                      },
                     ),
                   ],
                 ),
@@ -79,6 +108,36 @@ class _RegisterPageState extends State<RegisterPage>{
         ),
       ),
     );
+  }
+  signUp(String email, pass, phoneNumber, username) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    Map data = {'email': email, 'password': pass, 'phone_number': phoneNumber, 'name':username};
+    var jsonResponse = null;
+    var response =
+    await http.post(Uri.encodeFull("http://10.0.2.2:8000/api/signup"), body: data);
+    print("respone ${jsonResponse}" );
+    print(response.statusCode);
+    if (response.statusCode == 200) {
+      jsonResponse = json.decode(response.body);
+      if (jsonResponse != null) {
+        print("Data : ${jsonResponse['id']}");
+
+        setState(() {
+          _isLoading = false;
+        });
+        sharedPreferences.setString(
+            SharePrefKeys.USER_ID, jsonResponse['id'].toString());
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (BuildContext context) => HomeScreen()),
+                (Route<dynamic> route) => false);
+      }
+      print("hello");
+    } else {
+      setState(() {
+        _isLoading = false;
+      });
+      print(response.body);
+    }
   }
 
 }
