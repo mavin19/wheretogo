@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wheretogo/constants/contstant.dart';
+import 'package:wheretogo/register.dart';
 class LoginPage extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => _LoginPageState();
@@ -80,7 +81,10 @@ class _LoginPageState extends State<LoginPage>{
                           GestureDetector(
                             child: Text("Sign up",style: TextStyle(fontSize: Constant.kNormalText,fontWeight: FontWeight.bold),),
                             onTap: (){
-                              print("Sign up pressed");
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => RegisterPage()),
+                              );
                             },
                           ),
 

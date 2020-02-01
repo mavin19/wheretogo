@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:wheretogo/component/button.dart';
+import 'package:wheretogo/profile.dart';
+import 'package:wheretogo/screen/eventDetail_screen.dart';
 
 import 'component/list_post.dart';
 import 'constants/contstant.dart';
 
 class HomeScreen extends StatefulWidget {
-  final heroTag;
-  final foodName;
-  final foodPrice;
-
-  HomeScreen({this.heroTag, this.foodName, this.foodPrice});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -46,7 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
               icon: new Image.asset('images/profile.png'),
               iconSize: 25,
               padding: const EdgeInsets.only(right: 30),
-              onPressed: null),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              }),
           new IconButton(
               icon: new Image.asset('images/book.png'),
               iconSize: 25,
@@ -128,12 +130,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top:20.0),
-                     child: Text(
-                       "Tranding",
-                       style: TextStyle(
-                           fontSize: Constant.kTitleFont, color: Colors.grey),
-                     ),
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: Text(
+                        "Tranding",
+                        style: TextStyle(
+                            fontSize: Constant.kTitleFont, color: Colors.grey),
+                      ),
                     ),
                     Container(
                       margin: EdgeInsets.all(20.0),
@@ -141,7 +143,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          ListPost(),
+                          ListPost(onPress: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>EventDetail()));
+                          },),
                           ListPost(),
                           ListPost(),
                           ListPost(),
@@ -198,7 +202,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
-
               ),
             ),
           ],

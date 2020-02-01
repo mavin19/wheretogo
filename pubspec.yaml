@@ -18,9 +18,9 @@ environment:
 
 dependencies:
   flutter:
-    sdk: flutter
+    sdk: fluttercostco computer cambodia
   chopper: ^2.4.0
-  provider: ^3.0.0+1
+  provi der: ^3.0.0+1
   built_value: ^6.7.0
   font_awesome_flutter: ^8.5.0
 
@@ -51,6 +51,8 @@ flutter:
   assets:
     - images/app_logo.jpg
     - images/default-profile.png
+    - images/profile.png
+    - images/book.png
 #    - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
