@@ -117,7 +117,7 @@ class _RegisterPageState extends State<RegisterPage>{
     await http.post(Uri.encodeFull("http://10.0.2.2:8000/api/signup"), body: data);
     print("respone ${jsonResponse}" );
     print(response.statusCode);
-    if (response.statusCode == 200) {
+    if (response.statusCode == 201) {
       jsonResponse = json.decode(response.body);
       if (jsonResponse != null) {
         print("Data : ${jsonResponse['id']}");
