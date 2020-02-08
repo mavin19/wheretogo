@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wheretogo/constants/contstant.dart';
+import 'package:wheretogo/login.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -68,10 +69,13 @@ class _ProfileStatus extends State<ProfilePage> {
         title: Text("Profile"),
         actions: <Widget>[
           IconButton(
-            icon: Icon(FontAwesomeIcons.userEdit),
+            icon: Icon(FontAwesomeIcons.userEdit,color: Colors.black,),
           ),
           IconButton(
-            icon: Icon(FontAwesomeIcons.signOutAlt),
+            icon: Icon(FontAwesomeIcons.signOutAlt,color: Colors.black,),
+            onPressed: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+            },
           ),
         ],
       ),
