@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wheretogo/constants/contstant.dart';
-import 'package:http/http.dart' as http;
 import 'package:wheretogo/home_screen.dart';
+import 'package:http/http.dart' as http;
 import 'package:wheretogo/register.dart';
 
 import 'constants/share_pref_keys.dart';
@@ -147,6 +147,7 @@ class _LoginPageState extends State<LoginPage> {
                               Navigator.push(context, MaterialPageRoute(builder: (context)=>RegisterPage()));
                             },
                           ),
+
                         ],
                       )
                     ],
@@ -168,7 +169,7 @@ class _LoginPageState extends State<LoginPage> {
     Map data = {'email': email, 'password': pass};
     var jsonResponse = null;
     var response =
-        await http.post(Uri.encodeFull("http://172.23.0.242:8000/api/login"), body: data);
+        await http.post(Uri.encodeFull("http://10.0.2.2:8000/api/login"), body: data);
     print("respone ${jsonResponse}" );
     print(response.statusCode);
     if (response.statusCode == 200) {

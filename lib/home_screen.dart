@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:wheretogo/component/button.dart';
-import 'package:wheretogo/list_book.dart';
 import 'package:wheretogo/profile.dart';
 
 import 'component/list_post.dart';
 import 'constants/contstant.dart';
 import 'list_all_events.dart';
+import 'list_book.dart';
 
 class HomeScreen extends StatefulWidget {
-  final heroTag;
-  final foodName;
-  final foodPrice;
-
-  HomeScreen({this.heroTag, this.foodName, this.foodPrice});
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -39,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xFff7BE57),
       appBar: AppBar(
         title: Text(
-          "Decovery",
+          "Discovery",
           style: TextStyle(
               fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -228,6 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     )
                   ],
                 ),
+
               ),
             ),
           ],

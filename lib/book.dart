@@ -1,64 +1,151 @@
 import 'package:flutter/material.dart';
 import 'constants/contstant.dart';
-class BookPage extends StatefulWidget{
+
+class BookPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _BookPageState();
-
 }
 
-class _BookPageState extends State<BookPage>{
-
+class _BookPageState extends State<BookPage> {
   @override
   Widget build(BuildContext context) {
-    Container _bookInformation(){
+    Container _bookInformation() {
       return Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("Booking information",style: TextStyle(fontSize: Constant.kTitleFont,color: Colors.grey,fontWeight: FontWeight.bold),),
+            Text(
+              "Booking information",
+              style: TextStyle(
+                  fontSize: Constant.kTitleFont,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
             SizedBox(
               height: 25.0,
             ),
-            Text("Title of Event",style: TextStyle(fontSize: Constant.kNormalText,color: Colors.grey,fontWeight: FontWeight.bold),),
+            Text(
+              "Title of Event",
+              style: TextStyle(
+                  fontSize: Constant.kNormalText,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
             TextFormField(
               decoration: InputDecoration(
                 hintText: 'Trip to kampot',
+              ),
+            ),
+            SizedBox(
+              height: 25.0,
+            ),
+            Text(
+              "Price",
+              style: TextStyle(
+                  fontSize: Constant.kNormalText,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'USD',
+              ),
+            ),
+            SizedBox(
+              height: 25.0,
+            ),
+            Text(
+              "Include",
+              style: TextStyle(
+                  fontSize: Constant.kNormalText,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Breafast',
+              ),
+            ),
+            SizedBox(
+              height: 25.0,
+            ),
+            Text(
+              "Duration",
+              style: TextStyle(
+                  fontSize: Constant.kNormalText,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: '3days ',
               ),
             ),
           ],
         ),
       );
     }
-    Container _personalInfomation(){
+
+    Container _personalInfomation() {
       return Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("Personal information",style: TextStyle(fontSize: Constant.kTitleFont,color: Colors.grey,fontWeight: FontWeight.bold),),
+            Text(
+              "Personal information",
+              style: TextStyle(
+                  fontSize: Constant.kTitleFont,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
             SizedBox(
               height: 30.0,
             ),
-            Text("Fullname",style: TextStyle(fontSize: Constant.kNormalText,color: Colors.grey,fontWeight: FontWeight.bold),),
+            Text(
+              "Fullname",
+              style: TextStyle(
+                  fontSize: Constant.kNormalText,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
             TextFormField(
               decoration: InputDecoration(
                 hintText: 'Jonh Cena',
               ),
             ),
-            SizedBox(height: 25.0,),
-            Text("Email",style: TextStyle(fontSize: Constant.kNormalText,color: Colors.grey,fontWeight: FontWeight.bold),),
+            SizedBox(
+              height: 25.0,
+            ),
+            Text(
+              "Email",
+              style: TextStyle(
+                  fontSize: Constant.kNormalText,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
             TextFormField(
               decoration: InputDecoration(
                 hintText: 'example@gmail.com',
               ),
             ),
-            SizedBox(height: 25.0,),
-            Text("Phone number",style: TextStyle(fontSize: Constant.kNormalText,color: Colors.grey,fontWeight: FontWeight.bold),),
+            SizedBox(
+              height: 25.0,
+            ),
+            Text(
+              "Phone number",
+              style: TextStyle(
+                  fontSize: Constant.kNormalText,
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold),
+            ),
             TextFormField(
               decoration: InputDecoration(
                 hintText: '012345678',
               ),
             ),
-            SizedBox(height: 25.0,)
+            SizedBox(
+              height: 25.0,
+            )
           ],
         ),
       );
@@ -77,7 +164,11 @@ class _BookPageState extends State<BookPage>{
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Image.asset('images/app_logo.jpg',width: 55,height: 55,),
+              Image.asset(
+                'images/app_logo.jpg',
+                width: 55,
+                height: 55,
+              ),
               SizedBox(
                 height: 50.0,
               ),
@@ -86,11 +177,14 @@ class _BookPageState extends State<BookPage>{
                 height: 50.0,
               ),
               _bookInformation(),
+          RaisedButton(
+            child: Text("Done"),
+              color: Colors.amberAccent,
+              onPressed: null)
             ],
           ),
         ),
       ),
     );
   }
-
 }
