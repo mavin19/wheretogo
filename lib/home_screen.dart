@@ -1,11 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:wheretogo/component/button.dart';
 import 'package:wheretogo/profile.dart';
 
 import 'component/list_post.dart';
 import 'constants/contstant.dart';
+import 'favorite_screen.dart';
 import 'list_all_events.dart';
 import 'list_book.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
 
@@ -14,6 +18,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Function(Map<String, dynamic>)callBack;
+
   PageController pageController;
   List<String> image = [
     "https://media-cdn.tripadvisor.com/media/photo-s/11/6e/10/74/prague-tour-info.jpg",
@@ -34,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xFff7BE57),
       appBar: AppBar(
         title: Text(
-          "Discovery",
+          "Decovery",
           style: TextStyle(
               fontSize: 20, color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -191,39 +197,43 @@ class _HomeScreenState extends State<HomeScreen> {
                     Column(
                       children: <Widget>[
                         Center(
-                          child: Container(
-                            width: 300,
-                            height: 50,
-                            margin: EdgeInsets.only(top: 20),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20.0),
-                                border: Border.all(color: Color(0xff707070))),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(
-                                  Icons.favorite,
-                                  color: Color(0xffD75A4A),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(right: 10.0),
-                                ),
-                                Text(
-                                  "Favorite events",
-                                  style: TextStyle(
-                                    fontSize: Constant.kNormalText,
+                          child: GestureDetector(
+                            child: Container(
+                              width: 300,
+                              height: 50,
+                              margin: EdgeInsets.only(top: 20),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(color: Color(0xff707070))),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.favorite,
                                     color: Color(0xffD75A4A),
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 10.0),
+                                  ),
+                                  Text(
+                                    "Favorite events",
+                                    style: TextStyle(
+                                      fontSize: Constant.kNormalText,
+                                      color: Color(0xffD75A4A),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>FavoriteScreen()));
+                            },
                           ),
                         )
                       ],
                     )
                   ],
                 ),
-
               ),
             ),
           ],
@@ -252,5 +262,22 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+  Future<Map<String, dynamic>> getCategories() async {
+    Map<String, dynamic> jsonResponse;
+    var response =
+    await http.post("");
+    if (response.statusCode == 200) {
+      jsonResponse = json.decode(response.body);
+      if (jsonResponse != null && jsonResponse['status'] == true) {
+//        sharedPreferences.setString("token", jsonResponse['token']);
+//        Navigator.of(context).pushAndRemoveUntil(
+//            MaterialPageRoute(builder: (BuildContext context) => Sample()),
+//            (Route<dynamic> route) => false);
+      }
+      return jsonResponse;
+    } else {
+      return null;
+    }
   }
 }
