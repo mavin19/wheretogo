@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:wheretogo/constants/contstant.dart';
 
 import 'component/button.dart';
-//import 'package:flutter_range_slider/flutter_range_slider.dart';
+import 'package:flutter_range_slider/flutter_range_slider.dart';
 
-class Filter extends StatelessWidget {
+class Filter extends StatefulWidget {
+  @override
+  _Filter createState() => _Filter();
+}
+
+class _Filter extends State<Filter> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -73,17 +78,37 @@ class Filter extends StatelessWidget {
                         color: Colors.black, fontSize: Constant.kTitleFont),
                   ),
                   Slider(
-                    min: 0.0,
-                    max: 5.0,
-                    divisions: 10,
-                    value: sliderValue,
-                    activeColor: Color(0xffff520d),
-                    onChanged: (newValue){
+                      min: 0.0,
+                      max: 5.0,
+                      divisions: 10,
+                      value: sliderValue,
+                      activeColor: Color(Constant.kPrimaryColor),
+                      onChanged: (newValue) {
+                        setState(() {
+                          sliderValue = newValue;
+//                          if(){
+//
+//                          }
+                        });
+                      }
 
-                    }
+                      ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(child: Align(
+            alignment: Alignment.bottomCenter,
+            child: RaisedButton(
+              shape:RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+              color: Color(Constant.kPrimaryColor),
+              child: Text('Filter',
+                style: TextStyle(color: Color(0xffffffff)),),
+              onPressed: () {
 
-
-                  ),
+              },
+            ),
+          ),
+          ),
+        )
                 ],
               ),
             ),
